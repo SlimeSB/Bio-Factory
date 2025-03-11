@@ -1,6 +1,8 @@
 package com.github.elenterius.biofactory.datagen.tags;
 
 import com.github.elenterius.biofactory.BioFactoryMod;
+import com.github.elenterius.biomancy.init.ModItems;
+import com.simibubi.create.Create;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -29,7 +31,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
 	@Override
 	protected void addTags(Provider provider) {
-
+		//Items which do not have "burn time" for furnaces, but should act as food for the blaze burner (same value as coal)
+		tag(Create.ID, "blaze_burner_fuel/regular").add(
+			ModItems.NUTRIENT_BAR.get()
+		);
 	}
 
 }
